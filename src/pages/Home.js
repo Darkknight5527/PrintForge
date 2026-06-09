@@ -1,12 +1,11 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Upload, Package, Truck, CheckCircle, Zap, Shield, Star } from 'lucide-react';
+import { ArrowRight, Upload, Package, Truck, CheckCircle, Zap, Shield } from 'lucide-react';
 import PrintAnimation from '../components/PrintAnimation';
 import ProductCard from '../components/ProductCard';
 import { products } from '../data/products';
 
 export default function Home({ onAddToCart }) {
-  const statsRef = useRef(null);
 
   useEffect(() => {
     window.scrollTo(0, 0);

@@ -1,9 +1,8 @@
 import React, { useState, useRef } from 'react';
-import { Upload, FileText, X, Zap, ChevronDown, CheckCircle, AlertCircle } from 'lucide-react';
+import { Upload, FileText, X, Zap, CheckCircle } from 'lucide-react';
 import { materials } from '../data/products';
 
 const MATERIAL_PRICES = { PLA: 1.2, 'PLA+': 1.5, PETG: 1.8, 'PETG-CF': 2.8, TPU: 2.2, ABS: 1.6 };
-const INFILL_OPTIONS = [10, 20, 30, 40, 50, 60, 80, 100];
 const QUALITY_OPTIONS = [
   { label: 'Draft (0.3mm)', value: 0.3, time: 0.7 },
   { label: 'Standard (0.2mm)', value: 0.2, time: 1.0 },

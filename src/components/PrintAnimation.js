@@ -33,7 +33,6 @@ export default function PrintAnimation() {
   // Isometric-style 3D box being printed layer by layer
   const accentGreen = '#A8E63D';
   const dimGreen = '#4A6B1A';
-  const cardBg = '#1C1C22';
   const border = '#2A2A35';
 
   // Define layers of an isometric box (bottom to top)
