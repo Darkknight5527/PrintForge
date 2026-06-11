@@ -33,7 +33,7 @@ export default function AdminOrders() {
       .finally(() => setLoading(false));
   };
 
-  useEffect(() => { fetchOrders(); }, [filterStatus]);
+  useEffect(() => { fetchOrders(); }, [filterStatus]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const handleStatusUpdate = async (orderId, newStatus) => {
     setUpdatingId(orderId);
