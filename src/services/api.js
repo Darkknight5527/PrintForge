@@ -50,19 +50,28 @@ export const productsAPI = {
 
 // ── Orders ──
 export const ordersAPI = {
-  create:  (body) => request('/orders',              { method: 'POST', body: JSON.stringify(body) }),
-  getMine: ()     => request('/orders/my'),
+  create:  (body)    => request('/orders',              { method: 'POST', body: JSON.stringify(body) }),
+  getMine: ()        => request('/orders/my'),
   track:   (orderId) => request(`/orders/track/${orderId}`),
-  cancel:  (id)   => request(`/orders/${id}/cancel`, { method: 'PUT' }),
+  cancel:  (id)      => request(`/orders/${id}/cancel`, { method: 'PUT' }),
 };
 
-// ── Upload ──
+// ── Upload — handled separately to preserve auth token with FormData ──
 export const uploadAPI = {
-  model: (formData) => request('/upload/model', {
-    method: 'POST',
-    body: formData,
-    headers: {}, // let browser set multipart boundary
-  }),
+  model: async (formData) => {
+    const token = getToken();
+    const res = await fetch(`${BASE_URL}/upload/model`, {
+      method: 'POST',
+      headers: {
+        ...(token && { Authorization: `Bearer ${token}` }),
+        // No Content-Type header — browser sets multipart boundary automatically
+      },
+      body: formData,
+    });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.message || 'Upload failed');
+    return data;
+  },
 };
 
 // ── Payments ──
