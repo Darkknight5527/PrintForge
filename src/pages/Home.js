@@ -50,7 +50,7 @@ export default function Home({ onAddToCart }) {
           background: 'radial-gradient(ellipse 70% 70% at 60% 40%, transparent 0%, var(--bg) 70%)',
         }} />
 
-        <div style={{ maxWidth: 1200, margin: '0 auto', width: '100%', display: 'flex', alignItems: 'center', gap: 60, position: 'relative' }}>
+        <div className="hero-flex" style={{ maxWidth: 1200, margin: '0 auto', width: '100%', display: 'flex', alignItems: 'center', gap: 60, position: 'relative' }}>
           {/* Left copy */}
           <div style={{ flex: 1 }}>
             {/* Eyebrow */}
@@ -133,7 +133,7 @@ export default function Home({ onAddToCart }) {
           </div>
 
           {/* Right: Print Animation */}
-          <div style={{ flexShrink: 0, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <div className="hero-animation" style={{ flexShrink: 0, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
             <PrintAnimation />
             {/* Printer spec tag */}
             <div style={{
@@ -156,7 +156,7 @@ export default function Home({ onAddToCart }) {
         background: 'var(--bg-card)', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)',
         padding: '28px 5%',
       }}>
-        <div style={{ maxWidth: 1200, margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: 20 }}>
+        <div className="stats-bar" style={{ maxWidth: 1200, margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: 20 }}>
           {stats.map(({ value, label }) => (
             <div key={label} style={{ textAlign: 'center' }}>
               <div style={{ fontFamily: 'Space Grotesk', fontWeight: 700, fontSize: 28, color: 'var(--accent)', lineHeight: 1 }}>
@@ -178,7 +178,7 @@ export default function Home({ onAddToCart }) {
             </h2>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 24, position: 'relative' }}>
+          <div className="how-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 24, position: 'relative' }}>
             {/* Connector line */}
             <div style={{
               position: 'absolute', top: 28, left: '12.5%', right: '12.5%', height: 1,
@@ -230,7 +230,7 @@ export default function Home({ onAddToCart }) {
             </Link>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 24 }}>
+          <div className="featured-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 24 }}>
             {featured.map(p => <ProductCard key={p.id} product={p} onAddToCart={onAddToCart} />)}
           </div>
         </div>
@@ -297,11 +297,18 @@ export default function Home({ onAddToCart }) {
       </section>
 
       <style>{`
-        @media (max-width: 900px) {
-          section > div > div { flex-direction: column; }
+        @media (max-width: 860px) {
+          .hero-flex { flex-direction: column !important; text-align: center; padding-top: 90px !important; }
+          .hero-animation { display: none !important; }
+          .hero-flex .fade-up-delay-3 { justify-content: center; }
+          .how-grid { grid-template-columns: repeat(2,1fr) !important; }
         }
-        @media (max-width: 768px) {
-          .hero-grid { grid-template-columns: 1fr !important; }
+        @media (max-width: 600px) {
+          .stats-bar { grid-template-columns: repeat(2,1fr) !important; }
+          .featured-grid { grid-template-columns: 1fr !important; }
+        }
+        @media (max-width: 500px) {
+          .how-grid { grid-template-columns: 1fr !important; }
         }
       `}</style>
     </div>

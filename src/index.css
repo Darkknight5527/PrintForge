@@ -57,3 +57,109 @@ h1, h2, h3, h4, h5 {
 .fade-up-delay-1 { animation: fadeUp 0.6s ease 0.1s forwards; opacity: 0; }
 .fade-up-delay-2 { animation: fadeUp 0.6s ease 0.2s forwards; opacity: 0; }
 .fade-up-delay-3 { animation: fadeUp 0.6s ease 0.3s forwards; opacity: 0; }
+
+/* ── Mobile Responsive ── */
+@media (max-width: 768px) {
+
+  /* Hero */
+  .hero-inner {
+    flex-direction: column !important;
+    padding-top: 80px !important;
+    text-align: center;
+  }
+  .hero-inner > div:last-child {
+    display: none !important; /* hide print animation on mobile */
+  }
+  .hero-inner .fade-up-delay-3 {
+    justify-content: center;
+  }
+  .hero-trust {
+    justify-content: center !important;
+  }
+
+  /* Stats bar */
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  /* How it works */
+  .how-grid {
+    grid-template-columns: 1fr 1fr !important;
+  }
+  .how-connector {
+    display: none !important;
+  }
+
+  /* Featured products */
+  .featured-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Catalog grid */
+  .catalog-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Materials strip */
+  .materials-grid {
+    gap: 8px !important;
+  }
+
+  /* Custom order settings */
+  .settings-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Quote breakdown */
+  .quote-grid {
+    grid-template-columns: 1fr 1fr !important;
+  }
+  .quote-cta {
+    flex-direction: column !important;
+    gap: 16px !important;
+    align-items: flex-start !important;
+  }
+  .quote-cta button {
+    width: 100% !important;
+  }
+
+  /* Admin dashboard stats */
+  .admin-stats {
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  /* Admin orders table */
+  .admin-table {
+    display: none !important;
+  }
+
+  /* Footer */
+  .footer-grid {
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  /* Step indicator — compress on mobile */
+  .step-label {
+    display: none !important;
+  }
+
+  /* Track order */
+  .track-search {
+    flex-direction: column !important;
+  }
+  .track-search button {
+    width: 100% !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .how-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .stats-grid {
+    grid-template-columns: 1fr 1fr !important;
+  }
+  .admin-stats {
+    grid-template-columns: 1fr !important;
+  }
+}

@@ -123,7 +123,7 @@ export default function Catalog({ onAddToCart }) {
         ) : products.length > 0 ? (
           <>
             <p style={{ fontSize: 13, color: 'var(--text-subtle)', marginBottom: 24 }}>{products.length} products found</p>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: 24 }}>
+            <div className="catalog-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: 24 }}>
               {products.map(p => <ProductCard key={p._id} product={p} onAddToCart={onAddToCart} />)}
             </div>
           </>

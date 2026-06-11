@@ -223,7 +223,7 @@ export default function CustomOrder() {
             {step >= 2 && (
               <div style={{ background: 'var(--bg-card)', border: '1px solid var(--border)', borderRadius: 20, padding: '32px', marginBottom: 24 }}>
                 <h2 style={{ fontFamily: 'Space Grotesk', fontWeight: 700, fontSize: 20, color: 'var(--text)', marginBottom: 28 }}>Print Settings</h2>
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24 }}>
+                <div className="settings-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24 }}>
                   <div>
                     <label style={{ fontSize: 12, fontFamily: 'Space Grotesk', fontWeight: 600, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.5px', display: 'block', marginBottom: 10 }}>Material</label>
                     <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8 }}>
@@ -281,7 +281,7 @@ export default function CustomOrder() {
                   <Zap size={16} color="var(--accent)" />
                   <span style={{ fontFamily: 'Space Grotesk', fontWeight: 700, fontSize: 16, color: 'var(--accent)' }}>Instant Quote</span>
                 </div>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 16, marginBottom: 28 }}>
+                <div className="quote-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 16, marginBottom: 28 }}>
                   {[
                     { label: 'Volume',     value: `${volumeCm3.toFixed(1)} cm³` },
                     { label: 'Weight',     value: `~${grams}g` },
@@ -321,6 +321,12 @@ export default function CustomOrder() {
           </>
         )}
       </div>
+    <style>{`
+      @media (max-width: 640px) {
+        .settings-grid { grid-template-columns: 1fr !important; }
+        .quote-grid { grid-template-columns: 1fr 1fr !important; }
+      }
+    `}</style>
     </div>
   );
 }
