@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/printforge/static/css/main.31d5cff7.css",
-    "main.js": "/printforge/static/js/main.49640ab7.js",
+    "main.js": "/printforge/static/js/main.3c1e6155.js",
     "index.html": "/printforge/index.html",
     "main.31d5cff7.css.map": "/printforge/static/css/main.31d5cff7.css.map",
-    "main.49640ab7.js.map": "/printforge/static/js/main.49640ab7.js.map"
+    "main.3c1e6155.js.map": "/printforge/static/js/main.3c1e6155.js.map"
   },
   "entrypoints": [
     "static/css/main.31d5cff7.css",
-    "static/js/main.49640ab7.js"
+    "static/js/main.3c1e6155.js"
   ]
 }
