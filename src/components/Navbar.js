@@ -22,6 +22,7 @@ export default function Navbar({ cartCount = 0 }) {
     { to: '/catalog', label: 'Catalog' },
     { to: '/custom', label: 'Custom Order' },
     { to: '/track', label: 'Track Order' },
+    ...(user?.role === 'admin' ? [{ to: '/admin', label: '⚙ Admin' }] : []),
   ];
 
   return (

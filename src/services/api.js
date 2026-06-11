@@ -70,3 +70,18 @@ export const paymentsAPI = {
   createOrder: (orderId) => request('/payments/create-order', { method: 'POST', body: JSON.stringify({ orderId }) }),
   verify:      (body)    => request('/payments/verify',       { method: 'POST', body: JSON.stringify(body) }),
 };
+
+// ── Admin ──
+export const adminAPI = {
+  getDashboard:  ()            => request('/admin/dashboard'),
+  getOrders:     (params = {}) => {
+    const query = new URLSearchParams(params).toString();
+    return request(`/admin/orders${query ? `?${query}` : ''}`);
+  },
+  getUsers:      ()            => request('/admin/users'),
+  updateStatus:  (id, status, note) => request(`/orders/${id}/status`, { method: 'PUT', body: JSON.stringify({ status, note }) }),
+  confirmPrice:  (id, total, note)  => request(`/admin/orders/${id}/confirm-price`, { method: 'PUT', body: JSON.stringify({ total, note }) }),
+  createProduct: (body)        => request('/products', { method: 'POST', body: JSON.stringify(body) }),
+  updateProduct: (id, body)    => request(`/products/${id}`, { method: 'PUT', body: JSON.stringify(body) }),
+  deleteProduct: (id)          => request(`/products/${id}`, { method: 'DELETE' }),
+};
